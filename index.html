@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MVN Bharath Kumar &mdash; Business Analyst | Operations Analytics &amp; Automation</title>
+<meta name="description" content="Business Analyst at Amazon. $20M business impact prevented, 36,500 requests automated a year, 20+ dashboards and tools shipped. MBA Business Analytics, BITS Pilani.">
+<meta name="author" content="MVN Bharath Kumar">
+<meta name="theme-color" content="#FBF9F5">
+<meta property="og:title" content="MVN Bharath Kumar &mdash; Business Analyst">
+<meta property="og:description" content="I make operations measurable, then automatic. $20M impact prevented, 36,500 requests automated a year.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF9F5; --paper2:#F3EFE7; --surf:#FFFFFF;
+  --ink:#14171C; --ink2:#454C58; --ink3:#71798A;
+  --line:#E4DDD2; --line2:#D2C9BB;
+  --navy:#1F3864; --navy2:#2E4F8A; --navy-g:rgba(31,56,100,.07);
+  --accent:#9A5B23; --green:#2E7D48;
+  --max:1200px;
+  --disp:"Figtree",-apple-system,"Segoe UI",Helvetica,sans-serif;
+  --body:"Figtree",-apple-system,"Segoe UI",Helvetica,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --e:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+::selection{background:var(--navy);color:#fff}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:16.5px;line-height:1.64;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.field::before{content:"";position:absolute;inset:-20%;
+  background:radial-gradient(44rem 30rem at 80% 2%,rgba(31,56,100,.10),transparent 62%),
+             radial-gradient(38rem 26rem at 4% 20%,rgba(154,91,35,.07),transparent 62%);
+  animation:drift 30s var(--e) infinite alternate}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3%,2%,0) scale(1.07)}}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px;position:relative;z-index:2}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.028em;margin:0;line-height:1.08}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:99;background:var(--navy)}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .4s var(--e),border-color .4s var(--e)}
+nav.solid{background:rgba(251,249,245,.86);backdrop-filter:blur(16px) saturate(170%);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:32px}
+.mark{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:-.02em}
+.mark .sq{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);
+  font-size:10.5px;font-weight:700;background:var(--navy);color:#fff}
+.nav-links{display:flex;gap:4px;margin-left:auto;font-size:14px;font-weight:500}
+.nav-links a{color:var(--ink2);padding:7px 14px;border-radius:99px;transition:color .25s,background .25s}
+.nav-links a:hover{color:var(--navy);background:rgba(31,56,100,.055)}
+.nav-links a.on{color:var(--navy);background:var(--navy-g);font-weight:600}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:99px;
+  font-family:var(--body);font-size:14.5px;font-weight:600;letter-spacing:-.01em;cursor:pointer;
+  background:var(--navy);color:#fff;border:1px solid var(--navy);overflow:hidden;
+  transition:transform .25s var(--e),box-shadow .3s var(--e),background .25s}
+.btn:hover{background:#17294a;transform:translateY(-2px);box-shadow:0 12px 30px rgba(31,56,100,.26)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3),transparent 70%);
+  transform:translateX(-120%);transition:transform .8s var(--e)}
+.btn:hover::after{transform:translateX(120%)}
+.btn.g{background:transparent;color:var(--navy);border-color:var(--line2)}
+.btn.g:hover{background:rgba(31,56,100,.05);border-color:var(--navy);box-shadow:none;color:var(--navy)}
+.btn.sm{padding:10px 18px;font-size:13.5px}
+/* hero */
+header{padding:164px 0 74px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:99px;
+  border:1px solid var(--line2);background:var(--surf);font-size:12.5px;font-weight:600;
+  color:var(--ink2);margin-bottom:32px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);position:relative}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--green);
+  animation:ping 2.1s var(--e) infinite;opacity:0}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:22px}
+h1{font-size:clamp(2.5rem,5.9vw,4.7rem);line-height:1.04;letter-spacing:-.04em;font-weight:800}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .w{display:inline-block;transform:translateY(105%);transition:transform 1s var(--e);color:var(--ink)}
+h1 .w.up{transform:none}
+h1 .hl{color:var(--navy)}
+h1 .out{color:var(--navy)}
+h1 .dotgold{color:var(--accent)}
+.lede{font-size:clamp(1.04rem,1.5vw,1.26rem);color:var(--ink2);max-width:62ch;margin:32px 0 0;line-height:1.62}
+.lede b{color:var(--ink);font-weight:600}
+.lede mark{background:rgba(31,56,100,.09);color:var(--navy);padding:1px 6px;border-radius:5px;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:38px 0 0}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.hero-foot{margin-top:58px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 44px}
+.hf{font-size:13px;color:var(--ink3)}
+.hf b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:4px}
+.hf span{color:var(--ink);font-size:14.5px;font-weight:500}
+.snap{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:20px;
+  padding:0;margin-top:10px;overflow:hidden;box-shadow:0 28px 64px -38px rgba(20,23,28,.4)}
+.snap{border-top:3px solid var(--navy)}
+.snap h3{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);font-weight:500;
+  margin:0;padding:22px 28px 0}
+.snap h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.snap .lead{padding:18px 28px 22px;border-bottom:1px solid var(--line)}
+.snap .lead .n{font-family:var(--disp);font-weight:800;font-size:clamp(3.2rem,5.4vw,4.3rem);
+  line-height:.92;letter-spacing:-.05em;color:var(--navy);font-variant-numeric:tabular-nums;display:block}
+.snap .lead .n u{text-decoration:none;font-size:.44em;vertical-align:.42em;color:var(--accent);margin:0 2px}
+.snap .lead .t{display:block;margin-top:8px;font-size:14px;color:var(--ink2);font-weight:500;line-height:1.4}
+.snap .gr{display:grid;grid-template-columns:1fr 1fr}
+.snap .gr div{padding:20px 28px;border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.snap .gr div:nth-child(2n){border-right:0}
+.snap .gr div:nth-child(1),.snap .gr div:nth-child(2){border-top:0}
+.snap .gr .n{font-family:var(--disp);font-weight:700;font-size:28px;line-height:1;letter-spacing:-.042em;
+  color:var(--ink);font-variant-numeric:tabular-nums;display:block}
+.snap .gr .n u{text-decoration:none;font-size:.52em;vertical-align:.24em;color:var(--accent);margin:0 1px}
+.snap .gr .t{display:block;margin-top:7px;font-size:12.5px;color:var(--ink3);line-height:1.4}
+.snap .foot{padding:15px 28px;background:var(--paper2);border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);line-height:1.7}
+/* sections */
+section{padding:112px 0;position:relative;z-index:2}
+.head{max-width:74ch;margin-bottom:56px}
+.tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.tag::before{content:"";width:28px;height:1px;background:var(--accent);opacity:.7}
+.head h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.028em;line-height:1.06}
+.head h2 em{font-style:normal;color:var(--navy)}
+.head p{color:var(--ink2);margin:20px 0 0;font-size:17.5px;max-width:64ch}
+/* scorecard - the one dark anchor on the page */
+.score{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.1);
+  border-radius:18px;overflow:hidden;box-shadow:0 24px 60px -28px rgba(20,23,28,.55)}
+.sc{background:var(--ink);padding:32px 24px 28px;position:relative;transition:background .35s var(--e)}
+.sc:hover{background:#1B1F26}
+.sc::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:#D9A94A;transition:width 1.1s var(--e) .25s}
+.sc.in::before{width:100%}
+.sc .v{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,3.2vw,2.9rem);
+  line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:#fff}
+.sc .v u{text-decoration:none;color:#D9A94A;font-size:.54em;vertical-align:.16em;margin-left:2px;font-family:var(--body);font-weight:600}
+.sc .k{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.45;margin-top:13px}
+.sc .k b{display:block;color:rgba(255,255,255,.95);font-weight:600;font-size:13px;margin-bottom:3px;font-family:var(--body)}
+/* before / after */
+.ba{border-top:1px solid var(--line)}
+.ba-row{display:grid;grid-template-columns:1fr auto auto;gap:44px;align-items:center;
+  padding:26px 6px;border-bottom:1px solid var(--line);transition:background .3s var(--e),padding-left .3s var(--e)}
+.ba-row:hover{background:var(--surf);padding-left:16px}
+.ba-row .task{font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-.022em;line-height:1.3}
+.ba-row .task s{text-decoration:none;display:block;font-size:13px;color:var(--ink3);font-weight:400;margin-top:4px}
+.clock{font-family:var(--mono);font-size:13.5px;color:var(--ink3);white-space:nowrap;text-align:right;min-width:196px}
+.clock .was{text-decoration:line-through;text-decoration-thickness:1px;color:var(--ink3)}
+.clock .arw{color:var(--line2);margin:0 9px}
+.clock b{color:var(--ink);font-weight:600}
+.cut{font-family:var(--disp);font-weight:700;font-size:30px;letter-spacing:-.045em;color:var(--navy);
+  min-width:108px;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
+.cut s{text-decoration:none;display:block;font-family:var(--mono);font-size:9px;font-weight:500;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:32px;align-items:center}
+.filters .fl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-right:8px}
+.f{font-family:var(--body);font-size:13px;font-weight:500;padding:8px 16px;border-radius:99px;cursor:pointer;
+  background:var(--surf);color:var(--ink2);border:1px solid var(--line);transition:all .25s var(--e)}
+.f:hover{color:var(--navy);border-color:var(--line2)}
+.f.on{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+.viz{height:132px;background:var(--paper2);border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;transition:background .4s var(--e)}
+.proj:hover .viz{background:#EEE8DC}
+.viz svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.viz i{position:absolute;right:14px;bottom:10px;font-style:normal;font-family:var(--mono);
+  font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+  background:rgba(251,249,245,.82);padding:3px 8px;border-radius:5px;border:1px solid var(--line)}
+.grid{display:grid;gap:20px}
+.proj{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surf);
+  transition:opacity .45s var(--e),transform .45s var(--e),border-color .35s var(--e),box-shadow .45s var(--e)}
+.proj:hover{border-color:rgba(31,56,100,.3);box-shadow:0 26px 56px -30px rgba(20,23,28,.45);transform:translateY(-2px)}
+.proj.hide{opacity:.25;filter:grayscale(1)}
+.proj::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--navy);
+  opacity:0;transition:opacity .4s var(--e)}
+.proj:hover::before{opacity:1}
+.pin{padding:34px 38px 36px}
+.ptop{display:flex;gap:24px;align-items:flex-start;margin-bottom:20px}
+.pno{font-family:var(--mono);font-weight:600;font-size:13px;line-height:1;letter-spacing:.1em;
+  color:var(--ink3);flex:none;padding-top:9px}
+.ptop h3{font-size:clamp(1.35rem,2.3vw,1.9rem);letter-spacing:-.024em;line-height:1.1}
+.pmeta{display:flex;gap:10px;align-items:center;margin-top:9px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);flex-wrap:wrap}
+.pmeta .org{color:var(--accent);font-weight:500}
+.pmeta s{text-decoration:none;opacity:.35}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 24px}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;padding:5px 11px;border-radius:7px;
+  background:var(--paper2);color:var(--ink2);border:1px solid var(--line)}
+.qa{display:grid;gap:16px;margin-bottom:26px}
+.q{display:grid;grid-template-columns:106px 1fr;gap:22px;align-items:start}
+.q > b{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding-top:6px}
+.q p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.65}
+.q p b{color:var(--ink);font-weight:600}
+.res{border-top:1px solid var(--line);padding-top:22px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px}
+.r .rv{font-family:var(--disp);font-weight:700;font-size:26px;line-height:1;letter-spacing:-.03em;
+  color:var(--navy);font-variant-numeric:tabular-nums}
+.r .rl{font-size:12px;color:var(--ink3);margin-top:8px;line-height:1.4}
+.note{font-family:var(--mono);font-size:11.5px;line-height:1.8;color:var(--ink3);margin-top:30px;
+  padding-left:18px;border-left:2px solid var(--line2);max-width:84ch}
+/* method */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;
+  overflow:hidden;background:var(--surf)}
+.st{padding:34px 28px;border-right:1px solid var(--line);position:relative;transition:background .4s var(--e)}
+.st:last-child{border-right:0}
+.st:hover{background:var(--paper2)}
+.st .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--accent);margin-bottom:18px}
+.st h4{font-size:20px;letter-spacing:-.024em;margin-bottom:11px;color:var(--ink)}
+.st p{margin:0;font-size:14.5px;color:var(--ink2);line-height:1.6}
+.st::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--navy);transition:width .9s var(--e)}
+.st.in::after{width:100%}
+/* toolkit */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:26px;padding:16px 20px;
+  border:1px dashed var(--line2);border-radius:12px;background:var(--surf)}
+.legend .lt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink3);width:100%;margin-bottom:2px}
+.legend i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink2);display:inline-flex;gap:7px;align-items:center}
+.legend i b{width:17px;height:17px;border-radius:5px;display:grid;place-items:center;font-size:9.5px;
+  background:var(--navy);color:#fff;font-weight:700}
+.kits{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.kit{border:1px solid var(--line);border-radius:18px;padding:28px 30px;background:var(--surf);
+  transition:border-color .35s var(--e),box-shadow .35s var(--e)}
+.kit:hover{border-color:var(--line2);box-shadow:0 12px 32px -20px rgba(20,23,28,.28)}
+.kit h4{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.tool{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--paper2)}
+.tool:last-child{border-bottom:0}
+.tool .tn{font-size:14.5px;color:var(--ink);font-weight:500;flex:1;min-width:0}
+.tool .tn s{text-decoration:none;display:block;font-size:12px;color:var(--ink3);font-weight:400;margin-top:1px}
+.ev{display:flex;gap:5px;flex:none}
+.ev b{width:19px;height:19px;border-radius:5px;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  display:grid;place-items:center;background:var(--paper2);color:#B9B0A2;
+  border:1px solid var(--line);transition:all .3s var(--e);cursor:default}
+.ev b.on{background:var(--navy-g);color:var(--navy);border-color:rgba(31,56,100,.3)}
+.tool:hover .ev b.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.honest{margin-top:20px;border:1px solid var(--line2);border-left:3px solid var(--accent);
+  border-radius:0 18px 18px 0;padding:26px 30px;background:var(--surf)}
+.honest h4{font-size:19px;margin-bottom:10px;color:var(--ink)}
+.honest p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.66}
+.honest p b{color:var(--ink)}
+/* timeline */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.tl::after{content:"";position:absolute;left:5px;top:10px;width:1px;height:0;background:var(--navy);
+  transition:height 1.5s var(--e)}
+.tl.in::after{height:calc(100% - 20px)}
+.ev-row{position:relative;padding:0 0 50px}
+.ev-row:last-child{padding-bottom:0}
+.ev-row::before{content:"";position:absolute;left:-33px;top:10px;width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--line2);transition:all .5s var(--e)}
+.ev-row.in::before{border-color:var(--navy);background:var(--navy);box-shadow:0 0 0 4px rgba(31,56,100,.1)}
+.ev-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:5px}
+.ev-head h3{font-size:clamp(1.3rem,2vw,1.65rem);letter-spacing:-.024em}
+.ev-head h3 span{color:var(--navy);font-weight:600}
+.ev-head .dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink3);white-space:nowrap}
+.ev-sub{font-size:14px;color:var(--ink3);margin:0 0 18px}
+.ev-row ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.ev-row li{position:relative;padding-left:22px;color:var(--ink2);font-size:15.5px;line-height:1.62}
+.ev-row li::before{content:"";position:absolute;left:2px;top:10px;width:7px;height:1.5px;background:var(--navy);opacity:.5}
+.ev-row li b{color:var(--ink);font-weight:600}
+/* credentials */
+.cred{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.cd{border:1px solid var(--line);border-radius:18px;padding:30px 32px;background:var(--surf);
+  transition:border-color .35s,box-shadow .35s var(--e)}
+.cd:hover{border-color:rgba(31,56,100,.28);box-shadow:0 12px 32px -20px rgba(20,23,28,.28)}
+.cd .dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--accent);margin-bottom:14px}
+.cd h4{font-size:23px;letter-spacing:-.022em;margin-bottom:7px}
+.cd p{margin:0;color:var(--ink3);font-size:14.5px}
+.certs{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.certs span{font-size:13px;padding:9px 16px;border-radius:99px;border:1px solid var(--line);
+  color:var(--ink2);background:var(--surf);transition:all .25s}
+.certs span:hover{border-color:var(--navy);color:var(--navy)}
+/* footer */
+footer{position:relative;z-index:2;background:var(--ink);color:#fff;padding:104px 0 42px}
+footer .tag{color:#D9A94A}
+footer .tag::before{background:#D9A94A}
+footer h2{font-size:clamp(2.1rem,4.8vw,3.9rem);letter-spacing:-.03em;line-height:1.04;
+  max-width:24ch;margin:18px 0 22px;color:#fff}
+footer h2 em{font-style:normal;color:#D9A94A}
+footer .sub{color:rgba(255,255,255,.62);max-width:56ch;font-size:17px;margin:0 0 36px}
+.flinks{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:64px}
+.flinks .btn{background:#fff;color:var(--ink);border-color:#fff}
+.flinks .btn:hover{background:rgba(255,255,255,.88);box-shadow:none}
+.flinks .btn.g{background:transparent;color:#fff;border-color:rgba(255,255,255,.26)}
+.flinks .btn.g:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.14);padding-top:26px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45)}
+.up{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.45);transition:color .25s}
+.up:hover{color:#D9A94A}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .85s var(--e),transform .85s var(--e)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:1060px){
+  .score{grid-template-columns:repeat(3,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .st:nth-child(2){border-right:0}
+  .st:nth-child(1),.st:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:880px){
+  .wrap{padding:0 22px}
+  .nav-in{padding:14px 22px}
+  .nav-links{display:none}
+  header{padding:118px 0 54px}
+  section{padding:74px 0}
+  .kits,.cred{grid-template-columns:1fr}
+  .q{grid-template-columns:1fr;gap:5px}
+  .hero{grid-template-columns:1fr;gap:40px}
+  .ba-row{grid-template-columns:1fr;gap:12px;padding:22px 2px}
+  .ba-row:hover{padding-left:2px}
+  .clock,.cut{text-align:left;min-width:0}
+  .cut s{display:inline;margin-left:8px}
+  .pin{padding:26px 24px 28px}
+  .ptop{gap:16px}
+  .pno{font-size:32px}
+  .lane{grid-template-columns:52px 1fr 78px;gap:11px}
+  .head{margin-bottom:38px}
+  .hero-foot{gap:14px 26px}
+}
+@media (max-width:520px){
+  .score{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:1fr}
+  .st{border-right:0;border-bottom:1px solid var(--line)}
+  .tool{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important;animation:none!important}
+  .rv,h1 .w{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media print{
+  .field,nav,#prog,.hero-cta,.flinks,.filters{display:none}
+  body{background:#fff;font-size:10.5pt}
+  .sc{background:#fff!important}
+  .sc .v,.sc .k b{color:#000!important}
+  .sc .k{color:#333!important}
+  .sc .v u{color:#555!important}
+  footer{background:#fff!important;color:#000!important}
+  footer h2,footer h2 em{color:#000!important}
+  footer .sub,.fbot{color:#333!important}
+  .proj,.kit,.cd,.bar,.st,.honest,.score{box-shadow:none!important;break-inside:avoid}
+  .ev b{background:#fff!important;color:#bbb!important;border:1px solid #ddd!important}
+  .ev b.on{background:#111!important;color:#fff!important;border-color:#111!important}
+  .fill.was{background:#ddd!important}
+  .fill.now{background:#111!important}
+  .rv{opacity:1!important;transform:none!important}
+  section{padding:16px 0}
+}
+</style>
+</head>
+<body>
+<div class="field"></div>
+<div id="prog"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="mark" href="#top"><span class="sq">MB</span> MVN BHARATH KUMAR</a>
+    <div class="nav-links">
+      <a href="#impact">Impact</a>
+      <a href="#work">Work</a>
+      <a href="#method">Method</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#career">Career</a>
+      <a href="#creds">Credentials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn sm" href="assets/MVN_Bharath_Kumar_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+      <div class="pill rv"><span class="dot"></span> Open to Business Analyst &amp; Data Analyst roles</div>
+    <div class="kicker rv">Business Analyst, Amazon &middot; Hyderabad</div>
+    <h1 id="h1">
+      <span class="ln"><span class="w">I make operations</span></span>
+      <span class="ln"><span class="w hl">measurable</span><span class="w">, then</span></span>
+      <span class="ln"><span class="w hl">automatic</span><span class="w dotgold">.</span></span>
+    </h1>
+    <p class="lede rv">Five years turning high-volume operations into numbers people act on, then into systems that run themselves. At Amazon I own the busiest queue of customer-facing pricing, promotion and order requests across <b>15+ international marketplaces</b> &mdash; and I built the analytics and automation that keeps it running.</p>
+    <div class="hero-cta rv">
+      <a class="btn" href="#work">See the work &nbsp;&rarr;</a>
+      <a class="btn g" href="assets/MVN_Bharath_Kumar_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; &middot; PDF</a>
+      <a class="btn g" href="https://www.linkedin.com/in/bharath-kumar-mvn" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+      </div>
+      <aside class="snap">
+        <h3>Impact snapshot</h3>
+        <div class="lead rv">
+          <span class="n"><u>$</u><span data-to="20">20</span><u>M</u></span>
+          <span class="t">Business impact prevented on live price-error incidents, by finding the affected orders and getting them cancelled before they shipped.</span>
+        </div>
+        <div class="gr">
+          <div class="rv"><span class="n"><span data-to="36500">36,500</span></span><span class="t">Requests raised automatically each year</span></div>
+          <div class="rv"><span class="n"><u>~</u><span data-to="500">500</span><u>hrs</u></span><span class="t">Reporting time saved annually</span></div>
+          <div class="rv"><span class="n"><span data-to="20">20</span><u>+</u></span><span class="t">Dashboards and tools shipped, in daily use</span></div>
+          <div class="rv"><span class="n"><span data-to="15">15</span><u>+</u></span><span class="t">Marketplaces owned end to end</span></div>
+          <div class="rv"><span class="n"><span data-to="50">50</span><u>+</u></span><span class="t">Severity-2 incidents resolved</span></div>
+          <div class="rv"><span class="n"><span data-to="30">30</span><u>+</u></span><span class="t">Large promotional events coordinated</span></div>
+        </div>
+        <div class="foot">Measured outcomes from systems I built and queues I own &mdash; not estimates of effort.</div>
+      </aside>
+    </div>
+    <div class="hero-foot rv">
+      <div class="hf"><b>Now</b><span>Business Analyst I, Amazon</span></div>
+      <div class="hf"><b>Experience</b><span>5 years</span></div>
+      <div class="hf"><b>Education</b><span>MBA Business Analytics &middot; BITS Pilani</span></div>
+      <div class="hf"><b>Based</b><span>Hyderabad, India</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="tag">01 &mdash; Before / after</div>
+      <h2>What used to take hours.</h2>
+      <p>The clearest way to judge an automation is the clock. Same task, measured before and after I rebuilt it.</p>
+    </div>
+            <div class="ba">
+      <div class="ba-row rv"><div class="task">End-of-shift handover report<s>Three shifts, every day</s></div><div class="clock"><span class="was">45 min</span><span class="arw">&rarr;</span><b>5 min</b></div><div class="cut">89%<s>faster</s></div></div>
+      <div class="ba-row rv"><div class="task">Weekly reporting data extraction<s>~500 hours saved a year</s></div><div class="clock"><span class="was">10&ndash;12 hrs</span><span class="arw">&rarr;</span><b>&lt;1 hr</b></div><div class="cut">92%<s>faster</s></div></div>
+      <div class="ba-row rv"><div class="task">Bulk file validation &amp; duplicate checks<s>Large multi-marketplace files</s></div><div class="clock"><span class="was">~3 hrs</span><span class="arw">&rarr;</span><b>5 min</b></div><div class="cut">97%<s>faster</s></div></div>
+      <div class="ba-row rv"><div class="task">Daily recurring request routines<s>Three routines, ~100 requests a day</s></div><div class="clock"><span class="was">90&ndash;135 min</span><span class="arw">&rarr;</span><b>~10 min</b></div><div class="cut">91%<s>faster</s></div></div>
+      <div class="ba-row rv"><div class="task">Multi-region pricing-error reporting<s>22 months of history, every region</s></div><div class="clock"><span class="was">2&ndash;3 hrs</span><span class="arw">&rarr;</span><b>~30 min</b></div><div class="cut">80%<s>faster</s></div></div>
+    </div>
+  </div>
+</section>
+<section id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="tag">02 &mdash; Selected work</div>
+      <h2>Five systems I built, and <em>what they changed</em>.</h2>
+      <p>Each one started as a problem somebody was living with. Filter by tool to see where a skill is actually backed by shipped work.</p>
+    </div>
+    <div class="filters rv">
+      <span class="fl">Filter</span>
+      <button class="f on" data-f="all">All 5</button>
+      <button class="f" data-f="python">Python</button>
+      <button class="f" data-f="sql">SQL</button>
+      <button class="f" data-f="powerbi">Power BI</button>
+      <button class="f" data-f="quicksight">QuickSight</button>
+      <button class="f" data-f="excel">Excel / VBA</button>
+      <button class="f" data-f="automation">Automation</button>
+    </div>
+    <div class="grid">
+
+      <article class="proj rv" data-t="python automation">
+        <div class="viz"><svg viewBox="0 0 480 130" aria-hidden="true" fill="none" stroke="#1F3864"><g opacity=".15" stroke-width="1.5"><rect x="24" y="22" width="134" height="86" rx="7"/><rect x="173" y="22" width="134" height="86" rx="7"/><rect x="322" y="22" width="134" height="86" rx="7"/></g><g fill="#1F3864" stroke="none" opacity=".38"><circle cx="37" cy="35" r="2.4"/><circle cx="46" cy="35" r="2.4"/><circle cx="186" cy="35" r="2.4"/><circle cx="195" cy="35" r="2.4"/><circle cx="335" cy="35" r="2.4"/><circle cx="344" cy="35" r="2.4"/></g><g opacity=".2" stroke-width="3" stroke-linecap="round"><path d="M37 56h92M37 68h62M37 80h78M37 92h46"/><path d="M186 56h92M186 68h48M186 80h86M186 92h64"/><path d="M335 56h92M335 68h70M335 80h40M335 92h82"/></g><rect x="24" y="22" width="134" height="86" rx="7" stroke-width="1.6" opacity=".42"/></svg><i>Illustrative</i></div>
+        <div class="pin">
+          <div class="ptop">
+            <div class="pno">01</div>
+            <div>
+              <h3>Nexus &mdash; internal operations platform</h3>
+              <div class="pmeta"><span class="org">Amazon</span><s>/</s><span>Sole designer &amp; builder</span><s>/</s><span>In daily production use</span></div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">SQLite</span><span class="chip">REST APIs</span><span class="chip">SharePoint</span><span class="chip">Slack</span></div>
+          <div class="qa">
+            <div class="q"><b>The problem</b><p>Three shifts a day were each spending most of an hour writing the handover report by hand, pulling the same queue numbers from the same places into a document nobody could search afterwards. When a shift missed something, the next shift found out from a customer.</p></div>
+            <div class="q"><b>What I did</b><p>Designed, built and rolled out a three-module web platform, owning requirements, data model, interface and deployment end to end. <b>Shift Handover</b> generates and distributes the report automatically. <b>Live Event Monitoring</b> gives a real-time view of every marketplace with automated alerting. <b>Data Toolkit</b> runs bulk validation, duplicate and integrity checks on large files. I packaged a self-updating installer so teammates adopt it without any support from me.</p></div>
+          </div>
+          <div class="res">
+            <div class="r"><div class="rv">45 &rarr; 5 min</div><div class="rl">Handover report time</div></div>
+            <div class="r"><div class="rv">2&ndash;3 hrs/day</div><div class="rl">Saved across three shifts</div></div>
+            <div class="r"><div class="rv">3 modules</div><div class="rl">Shipped, self-updating installer</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj rv" data-t="sql quicksight">
+        <div class="viz"><svg viewBox="0 0 480 130" aria-hidden="true"><g stroke="#D7CFC1" stroke-width="1"><path d="M28 104h424M28 78h424M28 52h424M28 26h424"/></g><g fill="#1F3864" opacity=".18"><rect x="46" y="70" width="22" height="34" rx="2"/><rect x="88" y="54" width="22" height="50" rx="2"/><rect x="130" y="76" width="22" height="28" rx="2"/><rect x="172" y="42" width="22" height="62" rx="2"/><rect x="214" y="60" width="22" height="44" rx="2"/><rect x="256" y="30" width="22" height="74" rx="2"/><rect x="298" y="64" width="22" height="40" rx="2"/><rect x="340" y="18" width="22" height="86" rx="2"/><rect x="382" y="46" width="22" height="58" rx="2"/></g><polyline points="57,70 99,54 141,76 183,42 225,60 267,30 309,64 351,18 393,46" fill="none" stroke="#1F3864" stroke-width="2.1" opacity=".6"/><g fill="#1F3864" opacity=".75"><circle cx="267" cy="30" r="3.4"/><circle cx="351" cy="18" r="3.4"/></g></svg><i>Illustrative</i></div>
+        <div class="pin">
+          <div class="ptop">
+            <div class="pno">02</div>
+            <div>
+              <h3>Multi-region pricing-error analytics dashboard</h3>
+              <div class="pmeta"><span class="org">Amazon</span><s>/</s><span>Built end to end as sole owner</span><s>/</s><span>22 months of history</span></div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">SQL</span><span class="chip">Enterprise data warehouse</span><span class="chip">Amazon QuickSight</span><span class="chip">Data modelling</span></div>
+          <div class="qa">
+            <div class="q"><b>The problem</b><p>Pricing-error data sat in separate regional silos. Any question about savings or business impact per marketplace meant a manual compile, and some questions simply could not be answered at all.</p></div>
+            <div class="q"><b>What I did</b><p>Consolidated every region into one model that calculates savings and business impact per marketplace automatically. I wrote the SQL extracts feeding the dashboard and defined the metric logic directly with the business stakeholders who rely on the numbers, so the definitions are agreed rather than assumed.</p></div>
+          </div>
+          <div class="res">
+            <div class="r"><div class="rv">$20M</div><div class="rl">Impact prevented on live incidents</div></div>
+            <div class="r"><div class="rv">2&ndash;3 hrs &rarr; 30 min</div><div class="rl">Reporting turnaround</div></div>
+            <div class="r"><div class="rv">22 months</div><div class="rl">Queryable on demand</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj rv" data-t="python automation">
+        <div class="viz"><svg viewBox="0 0 480 130" aria-hidden="true"><g fill="#1F3864" opacity=".17"><rect x="28" y="26" width="76" height="20" rx="4"/><rect x="28" y="55" width="76" height="20" rx="4"/><rect x="28" y="84" width="76" height="20" rx="4"/></g><g stroke="#1F3864" opacity=".32" stroke-width="1.5" fill="none"><path d="M108 36h50l22 26"/><path d="M108 65h74"/><path d="M108 94h50l22-26"/></g><rect x="188" y="42" width="98" height="46" rx="10" stroke="#1F3864" stroke-width="1.6" fill="none" opacity=".5"/><g stroke="#1F3864" opacity=".24" stroke-width="3" stroke-linecap="round"><path d="M204 58h66M204 72h42"/></g><g stroke="#1F3864" opacity=".32" stroke-width="1.5" fill="none"><path d="M290 65h32l22-26"/><path d="M290 65h52"/><path d="M290 65h32l22 26"/></g><g fill="#1F3864" opacity=".17"><rect x="376" y="26" width="76" height="20" rx="4"/><rect x="376" y="55" width="76" height="20" rx="4"/><rect x="376" y="84" width="76" height="20" rx="4"/></g></svg><i>Illustrative</i></div>
+        <div class="pin">
+          <div class="ptop">
+            <div class="pno">03</div>
+            <div>
+              <h3>Automated recurring request pipeline</h3>
+              <div class="pmeta"><span class="org">Amazon</span><s>/</s><span>~100 requests a day</span><s>/</s><span>Zero manual entry</span></div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">API automation</span><span class="chip">File handling</span><span class="chip">Validation rules</span></div>
+          <div class="qa">
+            <div class="q"><b>The problem</b><p>Around 100 recurring requests a day were raised by hand, each needing every field populated and the right file attached for its marketplace. Three routines, 30&ndash;45 minutes each, and a typo was always one slip away from a customer-facing error.</p></div>
+            <div class="q"><b>What I did</b><p>Built automation that raises the full volume &mdash; roughly 36,500 requests a year &mdash; populating every field and attaching the correct file per marketplace, with validation rules in front of submission so a bad payload never reaches the queue.</p></div>
+          </div>
+          <div class="res">
+            <div class="r"><div class="rv">36,500/yr</div><div class="rl">Requests raised automatically</div></div>
+            <div class="r"><div class="rv">~10 min</div><div class="rl">Down from 90&ndash;135 min daily</div></div>
+            <div class="r"><div class="rv">Zero</div><div class="rl">Manual entry errors remaining</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj rv" data-t="python sql automation excel">
+        <div class="viz"><svg viewBox="0 0 480 130" aria-hidden="true"><g stroke="#1F3864" opacity=".18" stroke-width="3" stroke-linecap="round"><path d="M32 26h152M32 41h118M32 56h166M32 71h102M32 86h142M32 101h124"/></g><path d="M212 63h74" stroke="#1F3864" stroke-width="1.5" opacity=".38" stroke-dasharray="5 6"/><circle cx="330" cy="63" r="31" stroke="#1F3864" stroke-width="1.6" fill="none" opacity=".45"/><path d="M316 63l10 11 19-22" stroke="#1F3864" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><g stroke="#1F3864" opacity=".18" stroke-width="3" stroke-linecap="round"><path d="M384 48h64M384 63h44M384 78h56"/></g></svg><i>Illustrative</i></div>
+        <div class="pin">
+          <div class="ptop">
+            <div class="pno">04</div>
+            <div>
+              <h3>Automated reporting data extraction</h3>
+              <div class="pmeta"><span class="org">Amazon</span><s>/</s><span>Weekly, validated</span><s>/</s><span>~500 hrs saved a year</span></div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">openpyxl</span><span class="chip">Data-quality checks</span></div>
+          <div class="qa">
+            <div class="q"><b>The problem</b><p>A weekly extraction consumed 10&ndash;12 hours of manual work and still carried an estimated 15% error rate, so the downstream reporting was being corrected rather than trusted.</p></div>
+            <div class="q"><b>What I did</b><p>Replaced it with a validated automated pull that finishes in under an hour, with accuracy checks built into the run rather than bolted on afterwards &mdash; including guards against the long-ID precision bug that silently corrupts spreadsheet reads.</p></div>
+          </div>
+          <div class="res">
+            <div class="r"><div class="rv">~500 hrs</div><div class="rl">Saved annually</div></div>
+            <div class="r"><div class="rv">15% &rarr; 0</div><div class="rl">Estimated error rate</div></div>
+            <div class="r"><div class="rv">10&ndash;12 hrs &rarr; &lt;1</div><div class="rl">Weekly run time</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj rv" data-t="powerbi sql excel">
+        <div class="viz"><svg viewBox="0 0 480 130" aria-hidden="true"><g stroke="#D7CFC1" stroke-width="1"><path d="M26 104h290M26 74h290M26 44h290"/></g><polyline points="34,88 76,70 118,78 160,52 202,60 244,36 286,44" fill="none" stroke="#1F3864" stroke-width="2.2" opacity=".6"/><polyline points="34,97 76,93 118,85 160,89 202,75 244,79 286,67" fill="none" stroke="#9A5B23" stroke-width="2" opacity=".42" stroke-dasharray="4 5"/><circle cx="400" cy="65" r="29" stroke="#1F3864" stroke-width="11" fill="none" opacity=".13"/><path d="M400 36a29 29 0 0 1 23 47" stroke="#1F3864" stroke-width="11" fill="none" opacity=".42" stroke-linecap="round"/></svg><i>Illustrative</i></div>
+        <div class="pin">
+          <div class="ptop">
+            <div class="pno">05</div>
+            <div>
+              <h3>Westpac business intelligence suite</h3>
+              <div class="pmeta"><span class="org">Infosys</span><s>/</s><span>Client: Westpac</span><s>/</s><span>15+ dashboards led</span></div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">SQL</span><span class="chip">Excel / VBA</span><span class="chip">ServiceNow</span></div>
+          <div class="qa">
+            <div class="q"><b>The problem</b><p>Finance, operations and HR each worked from monthly manual packs. By the time a pack landed, the month it described was already over, so decisions were being made on history rather than position.</p></div>
+            <div class="q"><b>What I did</b><p>Was the primary client contact for all reporting: ran the requirement-gathering sessions, translated them into dashboard specifications, then built and led delivery of 15+ dashboards covering revenue forecasting, attrition and return-to-office. Defined the KPIs across three business tracks and automated bonus calculation in Excel, VBA and Power BI.</p></div>
+          </div>
+          <div class="res">
+            <div class="r"><div class="rv">+30%</div><div class="rl">Forecast accuracy</div></div>
+            <div class="r"><div class="rv">&minus;40%</div><div class="rl">Reporting turnaround</div></div>
+            <div class="r"><div class="rv">+25%</div><div class="rl">KPI target adherence</div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p class="note">The graphics above are illustrative, not screenshots: these are internal systems, so they are described at the level of problem, approach and outcome &mdash; no real screens, schemas, data or code &mdash; and nothing confidential leaves the building. I am happy to walk through the data model, the metric definitions or the validation logic in a conversation.</p>
+  </div>
+</section>
+<section id="method" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="tag">03 &mdash; Method</div>
+      <h2>How a request becomes a <em>system</em>.</h2>
+      <p>The same four steps every time. Most of the value is in the first one, which is why I sit inside the operation rather than next to it.</p>
+    </div>
+    <div class="flow">
+      <div class="st rv"><div class="n">STEP 01</div><h4>Understand</h4><p>Sit with the people doing the work and find the decision behind the request. Half the asks I get are for a report that nobody needed once the real question surfaced.</p></div>
+      <div class="st rv"><div class="n">STEP 02</div><h4>Define</h4><p>Agree the metric definitions with the stakeholders who will quote them, in writing, before any build. This is the step that stops two teams reporting different numbers for the same thing.</p></div>
+      <div class="st rv"><div class="n">STEP 03</div><h4>Build</h4><p>Extract, model, validate, ship. Validation is part of the pipeline, not a later review, because a number that is quietly wrong costs more than a number that is late.</p></div>
+      <div class="st rv"><div class="n">STEP 04</div><h4>Prove</h4><p>Measure the before and the after, hand it over with documentation, and train whoever inherits it. If it only works while I am watching, it is not finished.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="tag">04 &mdash; Toolkit</div>
+      <h2>Tools, with the <em>receipts</em> attached.</h2>
+      <p>Anyone can list software. The markers show which of the five projects above each tool was actually used to deliver, so you can see the evidence rather than take my word for it.</p>
+    </div>
+    <div class="legend rv">
+      <span class="lt">Project key</span>
+      <i><b>1</b> Nexus platform</i>
+      <i><b>2</b> Pricing-error dashboard</i>
+      <i><b>3</b> Request pipeline</i>
+      <i><b>4</b> Reporting extraction</i>
+      <i><b>5</b> Westpac BI suite</i>
+    </div>
+    <div class="kits">
+      <div class="kit rv">
+        <h4>Data &amp; analytics</h4>
+        <div class="tool"><div class="tn">SQL<s>Extracts, reporting queries, dashboard feeds</s></div><div class="ev" data-p="2,4"></div></div>
+        <div class="tool"><div class="tn">Power BI &amp; DAX<s>Data modelling, custom visuals</s></div><div class="ev" data-p="5"></div></div>
+        <div class="tool"><div class="tn">Amazon QuickSight<s>Datasets through to published dashboards</s></div><div class="ev" data-p="2"></div></div>
+        <div class="tool"><div class="tn">Advanced Excel<s>Modelling, pivots, Power Query, VBA</s></div><div class="ev" data-p="4,5"></div></div>
+        <div class="tool"><div class="tn">Dashboard &amp; KPI design<s>Metric definition with stakeholders</s></div><div class="ev" data-p="2,5"></div></div>
+        <div class="tool"><div class="tn">Data validation &amp; QC<s>In-pipeline accuracy checks</s></div><div class="ev" data-p="1,3,4"></div></div>
+      </div>
+      <div class="kit rv">
+        <h4>Engineering &amp; automation</h4>
+        <div class="tool"><div class="tn">Python<s>Flask apps, pandas, openpyxl</s></div><div class="ev" data-p="1,3,4"></div></div>
+        <div class="tool"><div class="tn">REST API integration<s>Ticketing, SharePoint, Slack</s></div><div class="ev" data-p="1,3"></div></div>
+        <div class="tool"><div class="tn">ETL &amp; pipeline automation<s>Scheduled, validated, unattended</s></div><div class="ev" data-p="3,4"></div></div>
+        <div class="tool"><div class="tn">VBA<s>Spreadsheet automation</s></div><div class="ev" data-p="5"></div></div>
+        <div class="tool"><div class="tn">SQLite<s>Local persistence for shipped tools</s></div><div class="ev" data-p="1"></div></div>
+        <div class="tool"><div class="tn">Packaging &amp; rollout<s>Self-updating installer for teammates</s></div><div class="ev" data-p="1"></div></div>
+      </div>
+      <div class="kit rv">
+        <h4>Platforms</h4>
+        <div class="tool"><div class="tn">AWS &mdash; S3, QuickSight<s>Storage and BI layer</s></div><div class="ev" data-p="2"></div></div>
+        <div class="tool"><div class="tn">Enterprise data warehouse<s>Primary source for reporting</s></div><div class="ev" data-p="2,4"></div></div>
+        <div class="tool"><div class="tn">PostgreSQL<s>Operational queries</s></div><div class="ev" data-p="4"></div></div>
+        <div class="tool"><div class="tn">SharePoint<s>Document store behind Nexus</s></div><div class="ev" data-p="1"></div></div>
+        <div class="tool"><div class="tn">ServiceNow &amp; Confluence<s>Workflow and governance reporting</s></div><div class="ev" data-p="5"></div></div>
+        <div class="tool"><div class="tn">Slack<s>Automated alerting and heartbeats</s></div><div class="ev" data-p="1"></div></div>
+      </div>
+      <div class="kit rv">
+        <h4>Business &amp; operations</h4>
+        <div class="tool"><div class="tn">Requirement gathering<s>Sessions with finance, ops and HR</s></div><div class="ev" data-p="1,2,5"></div></div>
+        <div class="tool"><div class="tn">Stakeholder communication<s>Up to VP-level readouts</s></div><div class="ev" data-p="2,5"></div></div>
+        <div class="tool"><div class="tn">Root cause analysis<s>Two reports reviewed by VPs</s></div><div class="ev" data-p="2"></div></div>
+        <div class="tool"><div class="tn">Sev-2 incident management<s>50+ resolved end to end</s></div><div class="ev" data-p="2"></div></div>
+        <div class="tool"><div class="tn">SOP &amp; process documentation<s>Handover, onboarding, training</s></div><div class="ev" data-p="1,5"></div></div>
+        <div class="tool"><div class="tn">Audit &amp; compliance<s>Two ISO audits at 100% pass</s></div><div class="ev" data-p="5"></div></div>
+      </div>
+    </div>
+    <div class="honest rv">
+      <h4>On the Python work, plainly</h4>
+      <p>I design the solution, specify the data model and the validation rules, and use <b>AI coding assistants</b> to write and debug the code. I test it, fix what comes back wrong, and it has run in production for my team ever since. I would rather tell you that upfront than have you discover it in a code review &mdash; and the judgement about what to build, and how to prove it works, is mine.</p>
+    </div>
+  </div>
+</section>
+<section id="career" style="border-top:1px solid var(--line);background:rgba(255,255,255,.012)">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="tag">05 &mdash; Career</div>
+      <h2>Where the work happened.</h2>
+    </div>
+    <div class="tl" id="tl">
+      <div class="ev-row rv">
+        <div class="ev-head"><h3>Business Analyst I <span>&middot; Amazon</span></h3><div class="dt">MAR 2025 &mdash; PRESENT</div></div>
+        <p class="ev-sub">Pricing, promotions, order management and customer notifications across 15+ international marketplaces</p>
+        <ul>
+          <li><b>Own the highest request volume on the team:</b> price and promotion changes, order replacements, cancellations and price-error cases, all customer-facing and time-critical.</li>
+          <li><b>Incident management:</b> resolved 50+ Severity-2 incidents end to end, and cleared 10+ publishing-system failures in a single quarter alongside my own deadline work.</li>
+          <li><b>Requirements and stakeholders:</b> coordinated 30+ large promotional events, running requirement reviews that surfaced defects before launch instead of after &mdash; preventing incorrect prices reaching customers and the refunds that follow.</li>
+          <li><b>Communications at scale:</b> set up and sent notifications for regional delivery disruptions, including one event covering 400,000+ impacted customers.</li>
+          <li><b>Root cause and process:</b> authored two root-cause reports reviewed by VP-level leadership; closed a recurring failure by documenting marketplace language support in the team SOP.</li>
+          <li>Repaired the team's automated Slack alerting after it silently failed, restoring real-time notification of incoming work.</li>
+          <li>Train new joiners on the price-error process and defined the approach the team now uses for large promotional events. <b>Innovation &amp; Excellence Award</b> from a Director.</li>
+        </ul>
+      </div>
+      <div class="ev-row rv">
+        <div class="ev-head"><h3>Business Analyst <span>&middot; Infosys</span></h3><div class="dt">MAY 2022 &mdash; FEB 2025</div></div>
+        <p class="ev-sub">Client: Westpac &mdash; business intelligence, governance and workforce analytics</p>
+        <ul>
+          <li><b>Primary client contact for all reporting:</b> ran requirement-gathering with finance, operations and HR, translated it into dashboard specifications and built the dashboards myself.</li>
+          <li>Defined KPIs across three business tracks, improving target adherence 25% by moving from monthly packs to live metrics.</li>
+          <li>Ran two internal ISO audits to a 100% pass rate, closed 30+ compliance findings and cut incident reporting time 40%.</li>
+          <li>Automated bonus calculation in Excel, VBA and Power BI; the workforce analysis raised productivity 20% and cut overtime cost 10%.</li>
+          <li>Reviewed 50+ contracts a year covering renewals, negotiation support and risk assessment. <b>Two client excellence awards and a GEM Recognition.</b></li>
+        </ul>
+      </div>
+      <div class="ev-row rv">
+        <div class="ev-head"><h3>Junior Engineer <span>&middot; MEIL</span></h3><div class="dt">AUG 2021 &mdash; APR 2022</div></div>
+        <p class="ev-sub">Megha Engineering &amp; Infrastructures Ltd &mdash; production forecasting and procurement analytics</p>
+        <ul>
+          <li>Ran production forecasting, material procurement and monthly global savings reporting that showed leadership where cost could be taken out.</li>
+          <li>Handled bid analysis, purchase orders and vendor negotiation end to end.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="head rv" id="creds" style="margin:90px 0 36px;scroll-margin-top:92px">
+      <div class="tag">06 &mdash; Credentials</div>
+      <h2>Education &amp; certifications.</h2>
+    </div>
+    <div class="cred">
+      <div class="cd rv"><div class="dt">JAN 2024 &mdash; DEC 2025</div><h4>MBA, Business Analytics</h4><p>BITS Pilani, Hyderabad &mdash; completed alongside full-time work</p></div>
+      <div class="cd rv"><div class="dt">MAY 2017 &mdash; JUL 2021</div><h4>B.Tech, Mechanical Engineering</h4><p>K L University, Vijayawada &mdash; CGPA 8.1 / 10</p></div>
+    </div>
+    <div class="certs rv">
+      <span>Microsoft Certified: Azure Fundamentals</span>
+      <span>Microsoft Power BI Developer</span>
+      <span>SQL Certified Associate</span>
+      <span>Power BI for Insight Professional</span>
+      <span>Business Intelligence Associate</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="tag rv">07 &mdash; Contact</div>
+    <h2 class="rv">Got a queue, a report or a number <em>that needs sorting out?</em></h2>
+    <p class="sub rv">I am open to Business Analyst and Data Analyst roles. Happy to walk through any project above in detail &mdash; the data model, the metric definitions, or what broke the first time and how I found it.</p>
+    <div class="flinks rv">
+      <a class="btn" href="mailto:bharathkumar.jobcareer@gmail.com">bharathkumar.jobcareer@gmail.com</a>
+      <a class="btn g" href="tel:+918106216614">+91 81062 16614</a>
+      <a class="btn g" href="https://www.linkedin.com/in/bharath-kumar-mvn" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn g" href="assets/MVN_Bharath_Kumar_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; &middot; PDF</a>
+    </div>
+    <div class="fbot">
+      <div>MVN BHARATH KUMAR &mdash; BUSINESS ANALYST &middot; HYDERABAD, INDIA</div>
+      <a class="up" href="#top">BACK TO TOP &nbsp;&uarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+
+  /* ---- evidence markers in the toolkit ---- */
+  $$(".ev").forEach(function(ev){
+    var used = (ev.getAttribute("data-p") || "").split(",").map(function(s){ return s.trim(); });
+    var html = "";
+    for (var i = 1; i <= 5; i++) {
+      var on = used.indexOf(String(i)) > -1;
+      html += '<b class="' + (on ? "on" : "") + '" title="' + (on ? "Used in project 0" + i : "Not used in project 0" + i) + '">' + i + "</b>";
+    }
+    ev.innerHTML = html;
+  });
+
+  /* ---- scroll progress + sticky nav + scrollspy ---- */
+  var prog = $("#prog"), nav = $("#nav");
+  var links = $$(".nav-links a");
+  var secs = links.map(function(a){ return $(a.getAttribute("href")); });
+  var ticking = false;
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+    if (nav) nav.classList.toggle("solid", y > 24);
+    var active = -1;
+    for (var i = 0; i < secs.length; i++) {
+      if (secs[i] && secs[i].getBoundingClientRect().top <= window.innerHeight * 0.38) active = i;
+    }
+    links.forEach(function(a, i){ a.classList.toggle("on", i === active); });
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  /* ---- numbers ---- */
+  function fmt(n){ return n.toLocaleString("en-US"); }
+  function countUp(el){
+    var target = parseFloat(el.getAttribute("data-to"));
+    if (isNaN(target)) return;
+    if (RM) { el.textContent = fmt(target); return; }
+    var dur = 1400, t0 = null;
+    el.textContent = "0";
+    function step(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 4);
+      el.textContent = fmt(Math.round(target * e));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---- reveal ---- */
+  function activate(el){
+    el.classList.add("in");
+    var n = el.querySelector("[data-to]");
+    if (n && !n.getAttribute("data-done")) { n.setAttribute("data-done", "1"); countUp(n); }
+    $$(".fill", el).forEach(function(f){
+      if (f.getAttribute("data-done")) return;
+      f.setAttribute("data-done", "1");
+      f.style.width = (f.getAttribute("data-w") || 0) + "%";
+    });
+  }
+
+  var reveals = $$(".rv").concat($$("#tl"));
+  if (RM || !("IntersectionObserver" in window)) {
+    reveals.forEach(activate);
+    $$("h1 .w").forEach(function(w){ w.classList.add("up"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        var d = parseInt(el.getAttribute("data-d") || "0", 10);
+        setTimeout(function(){ activate(el); }, d);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+    reveals.forEach(function(el){
+      var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+      el.setAttribute("data-d", String(Math.min(sibs, 6) * 80));
+      io.observe(el);
+    });
+
+    /* hero headline: word-by-word mask reveal on load */
+    var words = $$("h1 .w");
+    words.forEach(function(w, i){
+      setTimeout(function(){ w.classList.add("up"); }, 180 + i * 95);
+    });
+  }
+
+  /* ---- project filter ---- */
+  var btns = $$(".f"), projs = $$(".proj");
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var f = b.getAttribute("data-f");
+      btns.forEach(function(x){ x.classList.toggle("on", x === b); });
+      projs.forEach(function(p){
+        var tags = (p.getAttribute("data-t") || "").split(" ");
+        p.classList.toggle("hide", f !== "all" && tags.indexOf(f) === -1);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
